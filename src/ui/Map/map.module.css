@@ -1,0 +1,13 @@
+.map{
+    width: 100%;
+    height: 100%;
+}
+
+.popup{
+    cursor: pointer;
+}
+
+.popupTxt{
+    color: #ff7a00;
+    padding: 0 4px;
+}

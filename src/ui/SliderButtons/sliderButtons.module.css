@@ -1,0 +1,20 @@
+.prev_button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    top: 25%;
+    left: 5%;
+}
+
+.next_button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    transform: rotate(180deg);
+    top: 25%;
+    right: 5%;
+}

@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slider {
+    background-color: lightgray;
+    width: 321px;
+    height: 188px;  
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .prevButton {
+    position: absolute;
+    left: 10px;
+    background-color: transparent;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blanchedalmond;
+    border: none;
+
+  }
+  
+  .nextButton {
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blanchedalmond;
+    border: none;
+  }
+  
+  .dotsContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dotActive {
+    background-color: white;
+  }
+  
+  .dotInactive {
+    background-color: gray;
+  }

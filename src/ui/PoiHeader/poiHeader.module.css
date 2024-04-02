@@ -1,0 +1,38 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.title{
+    text-align: center;
+    font-size: clamp(1.5rem, 4cqi, 2rem);
+}
+
+.logo img {
+    width: clamp(47px, 8vw, 64px);
+    height: auto;
+}
+
+.back_btn {
+    width: clamp(30px, 8vw, 64px);
+    height: auto;
+    aspect-ratio: 1/1;
+    background-color: #DE6900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+}
+
+.back_btn img {
+    width: 50%;
+}

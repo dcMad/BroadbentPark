@@ -1,0 +1,174 @@
+.main {
+    /* Doubled up on rule for compatibility with devices that do not support DVH */
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    background-color: rgb(255, 255, 255);
+}
+
+.mapBackground{
+    position: absolute;
+    inset: 0;
+    max-width: 100%;
+    height: 100%;
+    width: auto;
+}
+
+.appBody{
+	max-width: 600px;
+}
+
+.pointsOfInterest{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 40px;
+    padding-top: 50%;
+    list-style: none;
+}
+
+.pointOfInterest {
+    visibility: hidden;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    background-color: #DE6900;
+
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.first {
+    width: 50%;
+    animation: slideRight 0.6s ease-out forwards;
+}
+
+.second {
+    width: 60%;
+    animation: slideRight 0.6s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.third {
+    width: 70%;
+    animation: slideRight 0.6s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.fourth {
+    width: 80%;
+    animation: slideRight 0.6s ease-out forwards;
+    animation-delay: 0.9s;
+}
+
+
+
+@keyframes slideRight {
+    0% {
+        visibility: visible;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        visibility: visible;
+        transform: translateX(0%);
+    }
+
+}
+
+
+
+
+
+.slide {
+    position: relative;
+}
+
+.slider_dots {
+    position: absolute;
+    bottom: 40%;
+
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.textWrap {
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.h1 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #595959;
+    /* margin-bottom: 20px; */
+}
+
+/* .p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 1);
+
+    margin-top: 25px;
+} */
+
+.audio {
+    width: 100%;
+}
+
+.audio::-webkit-media-controls-panel {
+    background-color: #F0EFEF;
+}
+
+.audio::-webkit-media-controls-mute-button {
+    background-color: #DE6900;
+    border-radius: 50%;
+}
+
+.audio::-webkit-media-controls-play-button {
+    background-color: #DE6900;
+    border-radius: 50%;
+}
+
+.slider {
+    width: 100%;
+    height: 50vh;
+    background-color: bisque;
+}
