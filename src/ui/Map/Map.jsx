@@ -4,7 +4,7 @@
 
 "use client";
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MapContainer, Marker, Popup, CircleMarker, ImageOverlay, useMapEvents, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -92,18 +92,18 @@ const Map = () => {
 		const map = useMapEvents({
 			locationfound(e) {
 				// this code sets the boundaries of location fetching
-				if(e.latlng.lat>=43.870622496768334 && e.latlng.lat<=43.86644892951219 || e.latlng.lng>=-78.83587688569492 && e.latlng.lng<=-78.82983352210522){
-					console.log("in area")
+				// if(e.latlng.lat>=43.870622496768334 && e.latlng.lat<=43.86644892951219 || e.latlng.lng>=-78.83587688569492 && e.latlng.lng<=-78.82983352210522){
+				// 	console.log("in area")
 					setPosition(e.latlng)
 					// forPresentation - <uncomment> - this code takes the map view to the current location
 					// map.flyTo(e.latlng)
-				}
-				else{
-					//! code here for out of area prompt
-					console.log("out of area")
-					// stops the gps location fetching
-					mapRef.current.stopLocate();
-				}
+				// }
+				// else{
+				// 	//! code here for out of area prompt
+				// 	console.log("out of area")
+				// 	// stops the gps location fetching
+				// 	mapRef.current.stopLocate();
+				// }
 			},
 			locationerror(e){
 				console.log(e)
@@ -140,9 +140,9 @@ const Map = () => {
 
 			{/* forPresentation - <uncomment this> - open street map tile, this code be used to show realtime tracking for presentation, by displaying current location, eg-college */}
 			{/* note - maxBounds property on MapContainer needs to be commented out for this to work properly, since it keeps view to image boundaries*/}
-			<TileLayer
+			{/* <TileLayer
 			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/>
+			/> */}
 
 			{/* custom map image overlay */}
 			<ImageOverlay
