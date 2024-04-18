@@ -71,43 +71,47 @@ const Map = () => {
 	// component for gps tracking and navigation marker
 	function LocationMarker() {
 		const [position, setPosition] = useState(null)
+		const [lastPosition, setLastPosition] = useState(null)
 
 		//? Live Location Fetching Code ****
-		// forPresentation - <uncomment this> - this code here fetches the real time location
-		// useEffect(() => {
-		// 		if (mapRef.current) {
-		// 			mapRef.current.locate({
-		// 				setView: false,
-		// 				maxZoom: 15,
-		// 				watch: true,
-		// 				timeout: 5000,
-		// 				enableHighAccuracy: true,
-		// 				maximumAge: Infinity,
-		// 			});
-		// 		}
-		// }, []);
+		useEffect(() => {
+				if (mapRef.current) {
+					mapRef.current.locate({
+						setView: false,
+						maxZoom: 15,
+						watch: true,
+						timeout: 2000,
+						enableHighAccuracy: true,
+						maximumAge: Infinity,
+					});
+				}
+		}, []);
 
 
 		// this code handles the gps events
 		const map = useMapEvents({
 			locationfound(e) {
 				// this code sets the boundaries of location fetching
-				// if(e.latlng.lat>=43.870622496768334 && e.latlng.lat<=43.86644892951219 || e.latlng.lng>=-78.83587688569492 && e.latlng.lng<=-78.82983352210522){
-				// 	console.log("in area")
+				if((e.latlng.lat>=43.86580168132025 && e.latlng.lat<=43.86952276125331) && (e.latlng.lng>=-78.83558173242115 && e.latlng.lng<=-78.82651005840965)){
+					console.log("in area")
 					setPosition(e.latlng)
 					// forPresentation - <uncomment> - this code takes the map view to the current location
 					// map.flyTo(e.latlng)
-				// }
-				// else{
-				// 	//! code here for out of area prompt
-				// 	console.log("out of area")
-				// 	// stops the gps location fetching
-				// 	mapRef.current.stopLocate();
-				// }
+				}
+				else{
+					//! code here for out of area prompt
+					console.log("out of area")
+					// stops the gps location fetching
+					mapRef.current.stopLocate();
+				}
 			},
 			locationerror(e){
+				//! code here for handling location error
+				//when you have continous location watching ON, there will be some errors popping up in the console log
+				// such as error code:2, message:"position unavailable", is due to user staying at same coordinates, which is okay, don't have to really worry about at this project scale
+				// however, error such as code:1, message: "user denied geolocation", is when user denied the location permission access by browerser or phone
+				//! so error message code 1 is where we can prompt user for allowing the loaction permission, ex- if(error.code==1){}
 				console.log(e)
-				//! code here for not able to fetch location error prompt
 			}
 		});
 
@@ -135,14 +139,15 @@ const Map = () => {
 				minZoom={18}
 				maxZoom={19}
 				//forPresentation - <comment this> - this code sets the boundaries for the map view only
-				// maxBounds={imageBounds}
+				maxBounds={imageBounds}
 			>
 
 			{/* forPresentation - <uncomment this> - open street map tile, this code be used to show realtime tracking for presentation, by displaying current location, eg-college */}
 			{/* note - maxBounds property on MapContainer needs to be commented out for this to work properly, since it keeps view to image boundaries*/}
-			{/* <TileLayer
+
+			{/*<TileLayer
 			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/> */}
+			/>*/}
 
 			{/* custom map image overlay */}
 			<ImageOverlay
